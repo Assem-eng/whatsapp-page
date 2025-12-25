@@ -2,55 +2,105 @@
 <html>
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>صفحة تواصل</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('image.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 320px;
+    }
+
+    h1 {
+      font-size: 48px; /* أكبر شوي لتناسب الكروم */
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin: 0 0 15px 0;
+    }
+
+    .highlight {
+      color: #000;
+      background: rgba(243, 156, 18, 1); /* لون برتقالي */
+      padding: 8px 9px;
+      border-radius: 6px;
+      display: inline-block;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    #counterBox {
+      background: rgba(0, 128, 0, 0.6); /* أخضر شفاف */
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    #counter {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #25D366; /* لون واتساب */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1ebe57;
+    }
+
+  </style>
 </head>
-<body style="
-margin:0;
-font-family:Arial;
-background:url('image.jpg') no-repeat center center/cover;
-height:100vh;
-display:flex;
-justify-content:flex-start;
-padding-top:0 px;
-  font-size:18px
-">
+<body>
 
-<div style="
-background:rgba(0,0,0,0,6);
-color:white;
-padding:30px;
-text-align:center;
-border-radius:10px;
-width:80%;
-max-width:300px;
-margin:0 auto;
-">
+<div class="container">
+  <h1>STC</h1>
 
+  <p class="highlight">بادر بالتقديم<br>قبل اكتمال العدد المطلوب</p>
 
+  <div id="counterBox">
+    🔥 متبقي <span id="counter">50</span> متقدم
+  </div>
 
-  <h1 style="font-size:41px;
-  font-weight:bold;
-  letter-spacing:2px;"> STC </h1>
-  
-  <p style="
-color:#000;
-background:rgba(243,156,18,1);
-padding:8px 9px;
-border-radius:6px;
-display:inline-block;
-font-size:18px;
-">بادر بالتقديم
-قبل اكتمال العدد المطلوب
-
-</p>
-<a href="https://wa.me/201149590260?text=السلام%20عليكم%2C%20شوفت%20الإعلان%20وحابب%20أعرف%20التفاصيل">
-    <button:hover { style="font-size:13px;padding:9px 10px;
-  background-color: rgba(39, 174, 96, 1);
-  };">
-      تواصل واتساب
-    </button>
+  <a href="https://wa.me/201149590260?text=السلام%20عليكم%2C%20شوفت%20الإعلان%20وحابب%20أعرف%20التفاصيل" target="_blank">
+    <button id="whatsappBtn">تواصل واتساب</button>
   </a>
 </div>
+
+<script>
+  let count = 50;
+  const counter = document.getElementById('counter');
+  const btn = document.getElementById('whatsappBtn');
+
+  btn.addEventListener('click', () => {
+    if(count > 0){
+      count--;
+      counter.textContent = count;
+    }
+    // فتح الواتساب
+    window.open('https://wa.me/201149590260?text=السلام%20عليكم%2C%20شوفت%20الإعلان%20وحابب%20أعرف%20التفاصيل', '_blank');
+  });
+</script>
+
 </body>
 </html>
