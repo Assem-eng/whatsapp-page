@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>صفحة تواصل</title>
+
   <style>
     body {
       margin: 0;
@@ -27,7 +28,7 @@
     }
 
     h1 {
-      font-size: 48px; /* أكبر شوي لتناسب الكروم */
+      font-size: 48px;
       font-weight: bold;
       letter-spacing: 2px;
       margin: 0 0 15px 0;
@@ -35,7 +36,7 @@
 
     .highlight {
       color: #000;
-      background: rgba(243, 156, 18, 1); /* لون برتقالي */
+      background: rgba(243, 156, 18, 1);
       padding: 8px 9px;
       border-radius: 6px;
       display: inline-block;
@@ -44,7 +45,7 @@
     }
 
     #counterBox {
-      background: rgba(0, 128, 0, 0.6); /* أخضر شفاف */
+      background: rgba(0, 128, 0, 0.6);
       padding: 15px;
       border-radius: 8px;
       margin-bottom: 15px;
@@ -58,33 +59,37 @@
     button {
       font-size: 16px;
       padding: 10px 20px;
-      background-color: #25D366; /* لون واتساب */
+      background-color: #25D366;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
     }
 
     button:hover {
       background-color: #1ebe57;
+      transform: scale(1.05);
     }
-
   </style>
 </head>
+
 <body>
 
 <div class="container">
   <h1>STC</h1>
 
-  <p class="highlight">بادر بالتقديم<br>قبل اكتمال العدد المطلوب</p>
+  <p class="highlight">
+    بادر بالتقديم<br>
+    قبل اكتمال العدد المطلوب
+  </p>
 
   <div id="counterBox">
     🔥 متبقي <span id="counter">50</span> متقدم
   </div>
 
-  <a href="https://wa.me/201149590260?text=السلام%20عليكم%2C%20شوفت%20الإعلان%20وحابب%20أعرف%20التفاصيل" target="_blank">
-    <button id="whatsappBtn">تواصل واتساب</button>
-  </a>
+  <!-- الزر فقط بدون لينك مباشر -->
+  <button id="whatsappBtn">تواصل واتساب</button>
 </div>
 
 <script>
@@ -93,12 +98,16 @@
   const btn = document.getElementById('whatsappBtn');
 
   btn.addEventListener('click', () => {
-    if(count > 0){
+
+    if (count > 0) {
       count--;
       counter.textContent = count;
     }
-    // فتح الواتساب
-    window.open('https://wa.me/201149590260?text=السلام%20عليكم%2C%20شوفت%20الإعلان%20وحابب%20أعرف%20التفاصيل', '_blank');
+
+    const message = 'السلام عليكم، شوفت الإعلان وحابب أعرف التفاصيل';
+    const whatsappLink = 'https://wa.me/201149590260?text=' + encodeURIComponent(message);
+
+    window.open(whatsappLink, '_blank');
   });
 </script>
 
